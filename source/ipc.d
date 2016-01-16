@@ -20,9 +20,9 @@ version(linux)
       super(AddressFamily.UNIX, socketType, ProtocolType.IP);
     }
 
-    this(socket_t sock, AddressFamily af)
+    this(socket_t sock)
     {
-      super(sock, af);
+      super(sock, AddressFamily.UNIX);
     }
 
     ptrdiff_t _send(const(void)[] buf, SocketFlags flags) @trusted
