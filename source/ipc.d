@@ -111,7 +111,7 @@ version(linux)
 
     UnixSocket toUnixSocket(size_t id)
     {
-      return new UnixSocket(cast(socket_t)socks[id], AddressFamily.UNIX);
+      return new UnixSocket(cast(socket_t)socks[id]);
     }
 
     return [toUnixSocket(0), toUnixSocket(1)];
