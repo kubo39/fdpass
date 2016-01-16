@@ -117,8 +117,6 @@ version(linux)
 
   unittest
   {
-    import std.stdio;
-
     immutable ubyte[] data = [1, 2, 3, 4];
     UnixSocket[2] pair = socketPair();
     scope(exit) foreach (s; pair) s.close();
