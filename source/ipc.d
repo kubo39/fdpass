@@ -86,9 +86,7 @@ version(linux)
       int fd = -1;
       memcpy(CMSG_DATA(&cmsg), cast(void*)&fd, int.sizeof);
 
-      auto received = recvmsg(this.handle() /* access to sock. */, &msg, 0);
-      memcpy(cast(void*)&fd, CMSG_DATA(&cmsg), int.sizeof);
-      return received;
+      return recvmsg(this.handle() /* access to sock. */, &msg, 0);
     }
 
     override ptrdiff_t receive(void[] buf, SocketFlags flags)
@@ -122,7 +120,7 @@ version(linux)
     import std.stdio;
 
     immutable ubyte[] data = [1, 2, 3, 4];
-    auto pair = socketPair();
+    UnixSocket[2] pair = socketPair();
     scope(exit) foreach (s; pair) s.close();
 
     pair[0].send(data);
