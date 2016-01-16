@@ -1,0 +1,4 @@
+name "ipc"
+authors "kubo39"
+targetType "library"
+targetPath "build"
