@@ -1,4 +1,4 @@
-name "ipc"
+name "fdpass"
 authors "kubo39"
 targetType "library"
 targetPath "build"

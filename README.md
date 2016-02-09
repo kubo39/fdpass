@@ -1,6 +1,6 @@
-# ipc [![Build Status](https://secure.travis-ci.org/kubo39/ipc.png?branch=master)](http://travis-ci.org/kubo39/ipc)
+# fdpass [![Build Status](https://secure.travis-ci.org/kubo39/fdpass.png?branch=master)](http://travis-ci.org/kubo39/fdpass)
 
-ipc is an implementation of file descriptor passing over Unix sockets on Linux.
+fdpass is an implementation of file descriptor passing over Unix sockets on Linux.
 
 ## Tips
 
