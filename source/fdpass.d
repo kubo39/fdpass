@@ -103,7 +103,7 @@ version(linux)
   UnixSocket[2] socketPair()
   {
     int[2] socks;
-    if (socketpair(AF_UNIX, SOCK_SEQPACKET, 0, socks) == -1) {
+    if (socketpair(AF_UNIX, SOCK_STREAM, 0, socks) == -1) {
       throw new SocketOSException("Unable to create socket pair");
     }
 
