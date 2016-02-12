@@ -129,4 +129,4 @@ version(linux)
     assert(buf == data);
   }
 }
-else static assert(false, "Not supported other platform.");
+else static assert(false, "Not supported platform.");
