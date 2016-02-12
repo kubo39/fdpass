@@ -31,13 +31,13 @@ version(linux)
       iovec iov;
       cmsghdr cmsg;
 
-      iov.iov_base = cast(void*)buf;
+      iov.iov_base = cast(void*) buf;
       iov.iov_len = buf.length;
 
       msg.msg_name = null;
       msg.msg_namelen = 0;
       msg.msg_control = &cmsg;
-      msg.msg_controllen = cast(socklen_t)CMSG_LEN(int.sizeof);
+      msg.msg_controllen = cast(socklen_t) CMSG_LEN(int.sizeof);
       msg.msg_iov = &iov;
       msg.msg_iovlen = 1;
       msg.msg_flags = 0;
@@ -47,7 +47,7 @@ version(linux)
       cmsg.cmsg_len = CMSG_LEN(int.sizeof);
 
       socket_t fd = this.handle(); /* access to sock. */
-      memcpy(CMSG_DATA(&cmsg), cast(void*)&fd, int.sizeof);
+      memcpy(CMSG_DATA(&cmsg), cast(void*) &fd, int.sizeof);
 
       return sendmsg(fd, &msg, 0);
     }
@@ -68,13 +68,13 @@ version(linux)
       iovec iov;
       cmsghdr cmsg;
 
-      iov.iov_base = cast(void*)buf;
+      iov.iov_base = cast(void*) buf;
       iov.iov_len = buf.length;
 
       msg.msg_name = null;
       msg.msg_namelen = 0;
       msg.msg_control = &cmsg;
-      msg.msg_controllen = cast(socklen_t)CMSG_LEN(int.sizeof);
+      msg.msg_controllen = cast(socklen_t) CMSG_LEN(int.sizeof);
       msg.msg_iov = &iov;
       msg.msg_iovlen = 1;
       msg.msg_flags = 0;
@@ -84,7 +84,7 @@ version(linux)
       cmsg.cmsg_len = CMSG_LEN(int.sizeof);
 
       int fd = -1;
-      memcpy(CMSG_DATA(&cmsg), cast(void*)&fd, int.sizeof);
+      memcpy(CMSG_DATA(&cmsg), cast(void*) &fd, int.sizeof);
 
       return recvmsg(this.handle() /* access to sock. */, &msg, 0);
     }
@@ -109,7 +109,7 @@ version(linux)
 
     UnixSocket toUnixSocket(size_t id)
     {
-      return new UnixSocket(cast(socket_t)socks[id]);
+      return new UnixSocket(cast(socket_t) socks[id]);
     }
 
     return [toUnixSocket(0), toUnixSocket(1)];
