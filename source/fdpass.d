@@ -49,7 +49,7 @@ version(linux)
       socket_t fd = this.handle(); /* access to sock. */
       memcpy(CMSG_DATA(&cmsg), cast(void*) &fd, int.sizeof);
 
-      return sendmsg(fd, &msg, 0);
+      return sendmsg(fd, &msg, flags);
     }
 
     override ptrdiff_t send(const(void)[] buf, SocketFlags flags)
@@ -86,7 +86,7 @@ version(linux)
       int fd = -1;
       memcpy(CMSG_DATA(&cmsg), cast(void*) &fd, int.sizeof);
 
-      return recvmsg(this.handle() /* access to sock. */, &msg, 0);
+      return recvmsg(this.handle() /* access to sock. */, &msg, flags);
     }
 
     override ptrdiff_t receive(void[] buf, SocketFlags flags)
